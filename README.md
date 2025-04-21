@@ -96,9 +96,12 @@ This project focuses on automating receipt processing using AWS services. Instea
   Upload a Receipt on the S3 bucket created
 
   Monitoring:
-    * Lambda > Function > Select out lambda fucntio created > on the "Monitor" tab, you can see the invocation
-    * DynamoDB > Explore intens> Receipts > Edit Item
-    * Check your personal email for any email related to this receipt processing.
+  
+  * Lambda > Function > Select out lambda fucntio created > on the "Monitor" tab, you can see the invocation
+
+  * DynamoDB > Explore intens> Receipts > Edit Item
+    
+  * Check your personal email for any email related to this receipt processing.
   
 
 
