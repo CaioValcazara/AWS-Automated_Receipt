@@ -2,6 +2,8 @@
 This project focuses on automating receipt processing using AWS services. Instead of manually handling receipts which can be time-consuming, error-prone, and difficult to scale—this system extracts structured data from receipts and stores it efficiently for record-keeping and auditing.
 
 
+## 1) Create a S3 Bucket
+
 ## 2) Dynamo DB
 
   Why Dynamo DB: lalala Dynamo DB Tables store all the extracted receipt data in a structed format
@@ -51,7 +53,7 @@ This project focuses on automating receipt processing using AWS services. Instea
          Role name <name>
          Descrition: exemaple:This Role Allows lambda access and process receipt automation. Services: SES, S3, Textract, DynamoDB and Lambda>
 
-## 4) Create the Lambda Function
+## 5) Create the Lambda Function
 
   Why using Lambda:
 
@@ -63,7 +65,7 @@ This project focuses on automating receipt processing using AWS services. Instea
         Select "Author from Scratch" -> Allow us to create a custom fuction
         Fuction name: <name>
         Runtime: Select "Python 3.13"
-        On tge "Change default execution role" drop down menu, select the role created on IAM "ReceiprprocessingLambdaRole"
+        On the "Change default execution role" drop down menu, select the role created on IAM "ReceiprprocessingLambdaRole"
     4. Go to "Configuration" after the Lambda menu creation was created and click on "edit"
         Change the timeout to 3 minutes -> this is necessary because Textract take minutes to complex receipts.
     5. Go to Environment Variables > Edit
@@ -71,7 +73,41 @@ This project focuses on automating receipt processing using AWS services. Instea
         * Key: DYNAMODB_TABLE, Value: Receipts;
         * Key: SES_RECIPIENT_EMAIL, Value: caio.valcazara@aluno.ufabc.edu.br;
         * Key: SES_SENDER_EMAIL, Value: caio.valcazara@aluno.ufabc.edu.br.r
-    6. Go to Code
+    6. Go to Code and paste the code "lambda_code.py" on this repo
+
+## 6) Create a S3 Event Notification
+
+  Why using Lambda:
+
+  Step-by-Step:
+
+    1. Go back to our S3 bucket the we created previsouly.
+    2. At he properties tab, go to Event Notificaiton and click on "Create event notification"
+    3. On the configuration menu:
+        Event name: <Receipt-Upload-Event>
+        Prefix - optional: incoming/
+        Event types: check "All object create events" box
+        In Lambda Function at the very end, select our function in the drop down menu
+
+        Finally, click on save
+
+## 7) Testing the Project
+
+  Upload a Receipt on the S3 bucket created
+
+  Monitoring:
+    * Lambda > Function > Select out lambda fucntio created > on the "Monitor" tab, you can see the invocation
+    * DynamoDB > Explore intens> Receipts > Edit Item
+    * Check your personal email for any email related to this receipt processing.
+  
+
+
+
+
+
+
+
+
 
 
 
