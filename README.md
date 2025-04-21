@@ -1,6 +1,8 @@
 # AWS-Automated_Receipt
 This project focuses on automating receipt processing using AWS services. Instead of manually handling receipts which can be time-consuming, error-prone, and difficult to scale—this system extracts structured data from receipts and stores it efficiently for record-keeping and auditing.
 
+## Diagram
+![image](https://automate-receipt-bucket.s3.us-east-1.amazonaws.com/DiagramReceiptProcess.drawio.png)
 
 ## 1) Create a S3 Bucket
 
