@@ -11,6 +11,7 @@ This project focuses on automating receipt processing using AWS services. Instea
     Dynamo DB Tables store all the extracted receipt data in a structed format
 
   step-by-step:
+    
     1. Search and click on "Dynamo DB" on the search bar at the AWS console.
     2. Go to "Tables" > Click on "Create Table"
     3. Important fields:
